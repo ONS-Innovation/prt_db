@@ -1,4 +1,5 @@
 # Projects, Repositories and Technologies Database (prt_db)
+
 A PostgreSQL database used to store Projects, Repositories and Technologies within ONS. This database integrates with various KEH tools.
 
 Integrated tools include:
@@ -15,7 +16,7 @@ Integrated tools include:
   - [Contents](#contents)
   - [Project Structure](#project-structure)
   - [Local Development](#local-development)
-    - [Prerequisites](#prerequisites)
+    - [Development Prerequisites](#development-prerequisites)
     - [PostgreSQL](#postgresql)
       - [PostgreSQL Client (Optional)](#postgresql-client-optional)
     - [Sqitch](#sqitch)
@@ -23,17 +24,17 @@ Integrated tools include:
     - [Resetting the Database](#resetting-the-database)
   - [Linting and Formatting](#linting-and-formatting)
     - [SQLFluff](#sqlfluff)
-      - [Prerequisites](#prerequisites-1)
-      - [Setup](#setup)
-      - [Usage](#usage)
+      - [SQLFluff Prerequisites](#sqlfluff-prerequisites)
+      - [SQLFluff Setup](#sqlfluff-setup)
+      - [SQLFluff Usage](#sqlfluff-usage)
       - [`.sqlfluff` Configuration](#sqlfluff-configuration)
-      - [GitHub Actions](#github-actions)
+      - [SQLFluff GitHub Action](#sqlfluff-github-action)
     - [Markdownlint-cli](#markdownlint-cli)
-      - [Prerequisites](#prerequisites-2)
-      - [Setup](#setup-1)
-      - [Usage](#usage-1)
+      - [Markdownlint Prerequisites](#markdownlint-prerequisites)
+      - [Markdownlint Setup](#markdownlint-setup)
+      - [Markdownlint Usage](#markdownlint-usage)
       - [`.markdownlint.json` Configuration](#markdownlintjson-configuration)
-      - [GitHub Actions](#github-actions-1)
+      - [Markdownlint GitHub Action](#markdownlint-github-action)
   - [License](#license)
 
 ## Project Structure
@@ -42,7 +43,7 @@ This project uses Sqitch for database version control. Sqitch organises database
 
 ## Local Development
 
-### Prerequisites
+### Development Prerequisites
 
 - [Colima](https://github.com/abiosoft/colima) (Docker daemon)
 - [Docker](https://www.docker.com/) (Docker CLI)
@@ -85,6 +86,7 @@ brew install --cask pgadmin4
 ```
 
 Once pgAdmin is installed, you can open it and create a new connection to the PostgreSQL database. Use the following settings:
+
 - Host: `localhost`
 - Port: `5432`
 - Username: `postgres`
@@ -107,6 +109,7 @@ or use a containerised version of Sqitch (Recommended):
 docker pull sqitch/sqitch
 curl -L https://git.io/JJKCn -o sqitch && chmod +x sqitch
 ```
+
 *^ This pulls the containerised version of Sqitch and its shell script wrapper.*
 
 and use its shell script wrapper (Included in the repository):
@@ -164,11 +167,11 @@ This repository uses [SQLFluff](https://docs.sqlfluff.com/en/stable/index.html) 
 
 For more information on SQLFluff, please refer to their Getting Started guide: [Getting Started with SQLFluff](https://docs.sqlfluff.com/en/stable/gettingstarted.html#).
 
-#### Prerequisites
+#### SQLFluff Prerequisites
 
 SQLFluff requires both Python and Pip to be installed.
 
-#### Setup
+#### SQLFluff Setup
 
 Install SQLFluff
 
@@ -176,7 +179,7 @@ Install SQLFluff
 pip install sqlfluff
 ```
 
-#### Usage
+#### SQLFluff Usage
 
 Lint all SQL files:
 
@@ -196,7 +199,7 @@ The `.sqlfluff` file in the root of the repository contains the configuration fo
 
 A full list of SQLFluff configuration options can be found in the [SQLFluff documentation](https://docs.sqlfluff.com/en/stable/configuration.html#configuration-options).
 
-#### GitHub Actions
+#### SQLFluff GitHub Action
 
 This repository uses GitHub Actions to run SQLFluff linting and formatting on every push and pull request. The workflow file is located in the `.github/workflows` directory.
 
@@ -204,30 +207,36 @@ The workflow will run SQLFluff linting and formatting on all SQL files in the re
 
 ### Markdownlint-cli
 
-This repository uses [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) to lint markdown files. 
+This repository uses [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) to lint markdown files.
 
 Markdownlint-cli is a command line interface for [MarkdownLint](https://github.com/DavidAnson/markdownlint).
 
-#### Prerequisites
+#### Markdownlint Prerequisites
 
 Markdownlint-cli requires Homebrew to be installed.
 
-#### Setup
-Install markdownlint-cli
+#### Markdownlint Setup
+
+Run Markdownlint-cli in a container:
+
+```bash
+docker run -v $PWD:/workdir ghcr.io/igorshubovych/markdownlint-cli:latest "*.md"
+```
+
+or install Markdownlint-cli locally:
 
 ```bash
 brew install markdownlint-cli
 ```
 
-For alternative installation methods (i.e. using Docker) see their [GitHub README](https://github.com/igorshubovych/markdownlint-cli/blob/master/README.md).
-
-#### Usage
+#### Markdownlint Usage
 
 Lint all markdown files:
 
 ```bash
 markdownlint .
 ```
+
 Fix all markdown files:
 
 ```bash
@@ -242,10 +251,12 @@ Currently, MD013 (line length) is disabled. This is because the default line len
 
 For a full list of rules, see [Markdownlint Rules / Aliases](https://github.com/DavidAnson/markdownlint?tab=readme-ov-file#rules--aliases)
 
-#### GitHub Actions
+#### Markdownlint GitHub Action
+
 This repository uses GitHub Actions to run markdownlint on every push and pull request. The workflow file is located in the `.github/workflows` directory.
 
 The workflow will run markdownlint on all markdown files in the repository. If any linting errors are found, the workflow will fail and provide a report of the errors.
 
 ## License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
