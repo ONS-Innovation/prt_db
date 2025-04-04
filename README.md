@@ -17,11 +17,13 @@ Integrated tools include:
   - [Local Development](#local-development)
     - [Prerequisites](#prerequisites)
     - [PostgreSQL](#postgresql)
+      - [PostgreSQL Client (Optional)](#postgresql-client-optional)
     - [Sqitch](#sqitch)
-    - [Setup](#setup)
+    - [First Time Setup](#first-time-setup)
+    - [Resetting the Database](#resetting-the-database)
   - [Linting and Formatting](#linting-and-formatting)
     - [Prerequisites](#prerequisites-1)
-    - [Setup](#setup-1)
+    - [Setup](#setup)
     - [Usage](#usage)
     - [`.sqlfluff` Configuration](#sqlfluff-configuration)
     - [GitHub Actions](#github-actions)
@@ -35,6 +37,8 @@ This project uses Sqitch for database version control. Sqitch organises database
 ### Prerequisites
 
 - [Colima](https://github.com/abiosoft/colima) (Docker daemon)
+- [Docker](https://www.docker.com/) (Docker CLI)
+- [Docker Compose](https://docs.docker.com/compose/) (Docker CLI)
 
 ### PostgreSQL
 
@@ -54,7 +58,17 @@ To run the database locally, run the following command:
 
 This will start the PostgreSQL database in a Docker container. The database will be accessible at `localhost:5432` with the username `postgres` and password `postgres`.
 
-To connect to the PostgreSQL database, you can use any PostgreSQL client. For example, you can use [pgAdmin](https://www.pgadmin.org/) or [DBeaver](https://dbeaver.io/).
+To stop the database, you can use the following command:
+
+```bash
+    docker-compose down
+```
+
+or control + c in the terminal where the database is running.
+
+#### PostgreSQL Client (Optional)
+
+To connect to the PostgreSQL database, you can use any PostgreSQL client. For example, you can use [pgAdmin](https://www.pgadmin.org/)(Recommended) or [DBeaver](https://dbeaver.io/).
 
 To install pgAdmin, you can use the following command:
 
@@ -68,14 +82,6 @@ Once pgAdmin is installed, you can open it and create a new connection to the Po
 - Username: `postgres`
 - Password: `postgres`
 Once you have connected to the database, you can run SQL queries and manage the database using pgAdmin.
-
-To stop the database, you can use the following command:
-
-```bash
-    docker-compose down
-```
-
-or control + c in the terminal where the database is running.
 
 ### Sqitch
 
@@ -113,15 +119,16 @@ Create the following file, `~/.sqitch/sqitch.conf`, and add the following:
 
 Filling in the `<Full Name>` and `<ONS Email Address>` with your own details.
 
-### Setup
+### First Time Setup
 
-Before using Sqitch to deploy our database model, we need to create the database within the PostgreSQL container.
+When running the PostgreSQL database for the first time, you will need to create a new database for the project. This is done using the `docker exec` command to run a command inside the PostgreSQL container.
 
 To do this, run the following command:
 
 ```bash
     docker exec -it postgres psql -U postgres -c "CREATE DATABASE prt_db;"
 ```
+
 This will create a new database called `prt_db` within the PostgreSQL container.
 Once the database is created, you can use Sqitch to deploy the database model.
 
@@ -129,10 +136,17 @@ Once the database is created, you can use Sqitch to deploy the database model.
     sqitch deploy prt_db
 ```
 
-This will deploy the database model to the `prt_db` database. Sqitch will create the necessary tables, views, and other database objects as defined in the `deploy` directory.
+This will deploy the database model to the `prt_db` database. Sqitch will the necessary changes defined in the `deploy` directory in the order specified in `sqitch.plan`.
 
-Once deployed, you can make changes to the model using Sqitch.
+### Resetting the Database
 
+In order to reset the database, you can use the following command:
+
+```bash
+    docker container rm postgres
+```
+
+This will remove the PostgreSQL container. You can then recreate the container and database using the commands above.
 
 ## Linting and Formatting
 
