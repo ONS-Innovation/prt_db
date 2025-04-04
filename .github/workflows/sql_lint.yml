@@ -1,0 +1,32 @@
+# A GitHub action to run SQL linting on pull requests and pushes using SQLFluff.
+---
+name: SQL Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  sql-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+
+      - name: Install SQLFluff
+        run: |
+          python -m pip install --upgrade pip
+          pip install sqlfluff
+
+      - name: Run SQLFluff Lint
+        run: |
+          sqlfluff lint --dialect postgres .
