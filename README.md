@@ -47,13 +47,13 @@ This project uses a containerised PostgreSQL database for local development. The
 Firstly, ensure the Docker daemon is running. If you are using Colima (Recommended), you can start the docker daemon with the following command:
 
 ```bash
-    colima start
+colima start
 ```
 
 To run the database locally, run the following command:
 
 ```bash
-    docker-compose up
+docker-compose up
 ```
 
 This will start the PostgreSQL database in a Docker container. The database will be accessible at `localhost:5432` with the username `postgres` and password `postgres`.
@@ -61,7 +61,7 @@ This will start the PostgreSQL database in a Docker container. The database will
 To stop the database, you can use the following command:
 
 ```bash
-    docker-compose down
+docker-compose down
 ```
 
 or control + c in the terminal where the database is running.
@@ -73,7 +73,7 @@ To connect to the PostgreSQL database, you can use any PostgreSQL client. For ex
 To install pgAdmin, you can use the following command:
 
 ```bash
-    brew install --cask pgadmin4
+brew install --cask pgadmin4
 ```
 
 Once pgAdmin is installed, you can open it and create a new connection to the PostgreSQL database. Use the following settings:
@@ -90,21 +90,21 @@ This project uses [Sqitch](https://sqitch.org/) for database version control. Sq
 To install Sqitch, you can use the following command:
 
 ```bash
-    brew install sqitch
+brew install sqitch
 ```
 
 or use a containerised version of Sqitch (Recommended):
 
 ```bash
-    docker pull sqitch/sqitch
-    curl -L https://git.io/JJKCn -o sqitch && chmod +x sqitch
+docker pull sqitch/sqitch
+curl -L https://git.io/JJKCn -o sqitch && chmod +x sqitch
 ```
 *^ This pulls the containerised version of Sqitch and its shell script wrapper.*
 
 and use its shell script wrapper (Included in the repository):
 
 ```bash
-    ./sqitch help
+./sqitch help
 ```
 
 Before using Sqitch, you will need to do some local configuration.
@@ -112,9 +112,9 @@ Before using Sqitch, you will need to do some local configuration.
 Create the following file, `~/.sqitch/sqitch.conf`, and add the following:
 
 ```conf
-    [user]
-    name = <Full Name>
-    email = <ONS Email Address>
+[user]
+name = <Full Name>
+email = <ONS Email Address>
 ```
 
 Filling in the `<Full Name>` and `<ONS Email Address>` with your own details.
@@ -126,14 +126,14 @@ When running the PostgreSQL database for the first time, you will need to create
 To do this, run the following command:
 
 ```bash
-    docker exec -it postgres psql -U postgres -c "CREATE DATABASE prt_db;"
+docker exec -it postgres psql -U postgres -c "CREATE DATABASE prt_db;"
 ```
 
 This will create a new database called `prt_db` within the PostgreSQL container.
 Once the database is created, you can use Sqitch to deploy the database model.
 
 ```bash
-    sqitch deploy prt_db
+sqitch deploy prt_db
 ```
 
 This will deploy the database model to the `prt_db` database. Sqitch will the necessary changes defined in the `deploy` directory in the order specified in `sqitch.plan`.
@@ -143,7 +143,7 @@ This will deploy the database model to the `prt_db` database. Sqitch will the ne
 In order to reset the database, you can use the following command:
 
 ```bash
-    docker container rm postgres
+docker container rm postgres
 ```
 
 This will remove the PostgreSQL container. You can then recreate the container and database using the commands above.
@@ -163,7 +163,7 @@ SQLFluff requires both Python and Pip to be installed.
 Install SQLFluff
 
 ```bash
-    pip install sqlfluff
+pip install sqlfluff
 ```
 
 ### Usage
@@ -171,13 +171,13 @@ Install SQLFluff
 Lint all SQL files:
 
 ```bash
-    sqlfluff lint .
+sqlfluff lint .
 ```
 
 Fix all SQL files:
 
 ```bash
-    sqlfluff fix .
+sqlfluff fix .
 ```
 
 ### `.sqlfluff` Configuration
