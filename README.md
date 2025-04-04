@@ -22,11 +22,19 @@ Integrated tools include:
     - [First Time Setup](#first-time-setup)
     - [Resetting the Database](#resetting-the-database)
   - [Linting and Formatting](#linting-and-formatting)
-    - [Prerequisites](#prerequisites-1)
-    - [Setup](#setup)
-    - [Usage](#usage)
-    - [`.sqlfluff` Configuration](#sqlfluff-configuration)
-    - [GitHub Actions](#github-actions)
+    - [SQLFluff](#sqlfluff)
+      - [Prerequisites](#prerequisites-1)
+      - [Setup](#setup)
+      - [Usage](#usage)
+      - [`.sqlfluff` Configuration](#sqlfluff-configuration)
+      - [GitHub Actions](#github-actions)
+    - [Markdownlint-cli](#markdownlint-cli)
+      - [Prerequisites](#prerequisites-2)
+      - [Setup](#setup-1)
+      - [Usage](#usage-1)
+      - [`.markdownlint.json` Configuration](#markdownlintjson-configuration)
+      - [GitHub Actions](#github-actions-1)
+  - [License](#license)
 
 ## Project Structure
 
@@ -150,15 +158,17 @@ This will remove the PostgreSQL container. You can then recreate the container a
 
 ## Linting and Formatting
 
+### SQLFluff
+
 This repository uses [SQLFluff](https://docs.sqlfluff.com/en/stable/index.html) for SQL linting.
 
 For more information on SQLFluff, please refer to their Getting Started guide: [Getting Started with SQLFluff](https://docs.sqlfluff.com/en/stable/gettingstarted.html#).
 
-### Prerequisites
+#### Prerequisites
 
 SQLFluff requires both Python and Pip to be installed.
 
-### Setup
+#### Setup
 
 Install SQLFluff
 
@@ -166,7 +176,7 @@ Install SQLFluff
 pip install sqlfluff
 ```
 
-### Usage
+#### Usage
 
 Lint all SQL files:
 
@@ -180,14 +190,62 @@ Fix all SQL files:
 sqlfluff fix .
 ```
 
-### `.sqlfluff` Configuration
+#### `.sqlfluff` Configuration
 
 The `.sqlfluff` file in the root of the repository contains the configuration for SQLFluff. This file is used to set the rules and settings for linting and formatting SQL files.
 
 A full list of SQLFluff configuration options can be found in the [SQLFluff documentation](https://docs.sqlfluff.com/en/stable/configuration.html#configuration-options).
 
-### GitHub Actions
+#### GitHub Actions
 
 This repository uses GitHub Actions to run SQLFluff linting and formatting on every push and pull request. The workflow file is located in the `.github/workflows` directory.
 
 The workflow will run SQLFluff linting and formatting on all SQL files in the repository. If any linting or formatting errors are found, the workflow will fail and provide a report of the errors.
+
+### Markdownlint-cli
+
+This repository uses [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) to lint markdown files. 
+
+Markdownlint-cli is a command line interface for [MarkdownLint](https://github.com/DavidAnson/markdownlint).
+
+#### Prerequisites
+
+Markdownlint-cli requires Homebrew to be installed.
+
+#### Setup
+Install markdownlint-cli
+
+```bash
+brew install markdownlint-cli
+```
+
+For alternative installation methods (i.e. using Docker) see their [GitHub README](https://github.com/igorshubovych/markdownlint-cli/blob/master/README.md).
+
+#### Usage
+
+Lint all markdown files:
+
+```bash
+markdownlint .
+```
+Fix all markdown files:
+
+```bash
+markdownlint --fix .
+```
+
+#### `.markdownlint.json` Configuration
+
+The `.markdownlint.json` file in the root of the repository contains the configuration for markdownlint. This file is used to set the rules and settings for linting markdown files.
+
+Currently, MD013 (line length) is disabled. This is because the default line length of 80 characters is too restrictive.
+
+For a full list of rules, see [Markdownlint Rules / Aliases](https://github.com/DavidAnson/markdownlint?tab=readme-ov-file#rules--aliases)
+
+#### GitHub Actions
+This repository uses GitHub Actions to run markdownlint on every push and pull request. The workflow file is located in the `.github/workflows` directory.
+
+The workflow will run markdownlint on all markdown files in the repository. If any linting errors are found, the workflow will fail and provide a report of the errors.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
