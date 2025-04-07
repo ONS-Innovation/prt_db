@@ -1,3 +1,9 @@
 %syntax-version=1.0.0
 %project=prt_db
 
+tatschema 2025-04-07T12:54:36Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for Tech Audit Tool objects.
+dlschema 2025-04-07T13:03:27Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for Digital Landscape objects.
+ghschema 2025-04-07T13:03:48Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for GitHub Scraper objects.
+gcpschema 2025-04-07T13:04:16Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for GitHub CoPilot objects.
+gpdschema 2025-04-07T13:04:46Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for GitHub Policy objects.
+dboschema 2025-04-07T13:05:09Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for general objects.
