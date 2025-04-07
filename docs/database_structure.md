@@ -24,7 +24,7 @@ The database has the following tables and schemas:
 | tat | output | A table containing information about a project's outputs | No |
 | tat | documentation | A table containing information about project documentation | Yes |
 | tat | project_hosting | A table linking projects to their hosting environments | Yes |
-| tat | hosting | | A table containing information about hosting environments (i.e. AWS, Azure, etc.) | Yes |
+| tat | hosting | A table containing information about hosting environments (i.e. AWS, Azure, etc.) | Yes |
 | tat | user | A table containing information about users | Yes |
 | tat | role | A table containing information about user roles | Yes |
 | tat | source_link | A table to relate projects and source control to specific repositories | Yes |
