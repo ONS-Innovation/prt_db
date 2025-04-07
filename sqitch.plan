@@ -16,3 +16,4 @@ tat-project-hosting [tat-schema tat-project tat-hosting] 2025-04-07T14:35:27Z ki
 tat-role [tat-schema] 2025-04-07T14:49:24Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Role Table.
 tat-user [tat-schema tat-project tat-role] 2025-04-07T14:54:17Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool User Table.
 tat-contributor [tat-schema tat-project] 2025-04-07T15:00:02Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Contributor Table.
+tat-source-control [tat-schema] 2025-04-07T15:21:49Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Source Control Table.
