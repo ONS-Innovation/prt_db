@@ -15,6 +15,7 @@ Integrated tools include:
 - [Projects, Repositories and Technologies Database (prt\_db)](#projects-repositories-and-technologies-database-prt_db)
   - [Contents](#contents)
   - [Project Structure](#project-structure)
+  - [Database Structure](#database-structure)
   - [Local Development](#local-development)
     - [Development Prerequisites](#development-prerequisites)
     - [PostgreSQL](#postgresql)
@@ -40,6 +41,10 @@ Integrated tools include:
 ## Project Structure
 
 This project uses Sqitch for database version control. Sqitch organises database changes (`.sql` files) into changesets. Each set has a deploy, revert and verify script. The changesets are stored in the `./deploy`, `./revert` and `./verify` directories respectively.
+
+## Database Structure
+
+Documentation about the database structure can be found in the [database_structure.md](./docs/database_structure.md) file.
 
 ## Local Development
 
