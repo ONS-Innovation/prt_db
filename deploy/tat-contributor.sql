@@ -4,7 +4,7 @@
 
 BEGIN;
 
-CREATE TABLE contributor (
+CREATE TABLE tat.contributor (
     contributor_id SERIAL PRIMARY KEY NOT NULL,
     project_id INT REFERENCES tat.project (project_id) NOT NULL,
     name VARCHAR(50) NOT NULL
