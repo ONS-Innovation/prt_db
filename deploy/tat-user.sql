@@ -5,7 +5,10 @@
 
 BEGIN;
 
-CREATE TABLE tat.user (
+-- SQLFluff doesn't like the table being called user.
+-- This can be ignored.
+
+CREATE TABLE tat.user ( -- noqa: PRS
     project_id INT REFERENCES tat.project (project_id) NOT NULL,
     role_id INT REFERENCES tat.role (role_id) NOT NULL,
     email VARCHAR(120) NOT NULL,
