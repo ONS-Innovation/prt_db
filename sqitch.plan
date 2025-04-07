@@ -7,8 +7,10 @@ gh-schema 2025-04-07T13:03:48Z kieran pritchard <kieran.pritchard@ons.gov.uk> # 
 gcp-schema 2025-04-07T13:04:16Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for GitHub CoPilot objects.
 gpd-schema 2025-04-07T13:04:46Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for GitHub Policy objects.
 dbo-schema 2025-04-07T13:05:09Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add schema for general objects.
+
 tat-programme [tat-schema] 2025-04-07T14:01:52Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Programme table.
 tat-project [tat-schema tat-programme] 2025-04-07T14:13:44Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Project table.
 tat-documentation [tat-schema tat-project] 2025-04-07T14:24:51Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Documentation table.
 tat-hosting [tat-schema] 2025-04-07T14:31:53Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Hosting table.
 tat-project-hosting [tat-schema tat-project tat-hosting] 2025-04-07T14:35:27Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Project Hosting table.
+tat-role [tat-schema] 2025-04-07T14:49:24Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Role Table.
