@@ -1,4 +1,4 @@
--- Deploy prt_db:dboschema to pg
+-- Deploy prt_db:dbo-schema to pg
 
 BEGIN;
 

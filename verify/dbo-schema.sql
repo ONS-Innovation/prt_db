@@ -1,4 +1,4 @@
--- Verify prt_db:dboschema on pg
+-- Verify prt_db:dbo-schema on pg
 
 BEGIN;
 

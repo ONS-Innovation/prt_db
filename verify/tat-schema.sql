@@ -1,4 +1,4 @@
--- Verify prt_db:tatschema on pg
+-- Verify prt_db:tat-schema on pg
 
 BEGIN;
 

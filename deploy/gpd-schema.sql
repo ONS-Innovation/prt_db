@@ -1,4 +1,4 @@
--- Deploy prt_db:gpdschema to pg
+-- Deploy prt_db:gpd-schema to pg
 
 BEGIN;
 

@@ -1,4 +1,4 @@
--- Verify prt_db:gcpschema on pg
+-- Verify prt_db:gcp-schema on pg
 
 BEGIN;
 

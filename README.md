@@ -17,6 +17,7 @@ Integrated tools include:
   - [Project Structure](#project-structure)
   - [Database Structure](#database-structure)
   - [Local Development](#local-development)
+    - [Contributing](#contributing)
     - [Development Prerequisites](#development-prerequisites)
     - [PostgreSQL](#postgresql)
       - [PostgreSQL Client (Optional)](#postgresql-client-optional)
@@ -47,6 +48,10 @@ This project uses Sqitch for database version control. Sqitch organises database
 Documentation about the database structure can be found in the [database_structure.md](./docs/database_structure.md) file.
 
 ## Local Development
+
+### Contributing
+
+Contributions to this project are welcome. Please read the [CONTRIBUTING](./.github/CONTRIBUTING.md) file for more information on how to contribute and the standards we expect.
 
 ### Development Prerequisites
 

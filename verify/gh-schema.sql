@@ -1,4 +1,4 @@
--- Verify prt_db:ghschema on pg
+-- Verify prt_db:gh-schema on pg
 
 BEGIN;
 

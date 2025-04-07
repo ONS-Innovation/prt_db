@@ -1,4 +1,4 @@
--- Deploy prt_db:dlschema to pg
+-- Deploy prt_db:dl-schema to pg
 
 BEGIN;
 

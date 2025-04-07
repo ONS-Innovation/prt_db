@@ -1,4 +1,4 @@
--- Deploy prt_db:ghschema to pg
+-- Deploy prt_db:gh-schema to pg
 
 BEGIN;
 

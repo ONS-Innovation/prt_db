@@ -1,4 +1,4 @@
--- Verify prt_db:dlschema on pg
+-- Verify prt_db:dl-schema on pg
 
 BEGIN;
 

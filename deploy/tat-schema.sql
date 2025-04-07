@@ -1,4 +1,4 @@
--- Deploy prt_db:tatschema to pg
+-- Deploy prt_db:tat-schema to pg
 
 BEGIN;
 
