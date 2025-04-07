@@ -21,3 +21,7 @@ tat-source-control [tat-schema] 2025-04-07T15:21:49Z kieran pritchard <kieran.pr
 gh-organisation [gh-schema] 2025-04-07T15:27:01Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper Organisation Table.
 
 tat-source-link [tat-schema tat-project tat-source-control gh-organisation] 2025-04-07T15:27:05Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Source Link Table.
+tat-technology-type [tat-schema] 2025-04-07T15:39:58Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Technology Type table.
+dl-radar-quadrant [dl-schema] 2025-04-07T15:41:10Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Quadrant table.
+dbo-technology [dbo-schema tat-technology-type dl-radar-quadrant] 2025-04-07T15:42:36Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Technology Table
+tat-project-technology [tat-schema tat-project dbo-technology] 2025-04-07T15:50:32Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Project Technology Table.

@@ -21,7 +21,7 @@ The database has the following tables and schemas:
 |-------------|------------|-------------|--------------|
 | tat | programme | A table containing information about programmes | Yes |
 | tat | project | A table containing information about projects | Yes |
-| tat | output | A table containing information about a project's outputs | No |
+| tat | output | A table containing information about a project's outputs | *No* |
 | tat | documentation | A table containing information about project documentation | Yes |
 | tat | project_hosting | A table linking projects to their hosting environments | Yes |
 | tat | hosting | A table containing information about hosting environments (i.e. AWS, Azure, etc.) | Yes |
@@ -39,8 +39,8 @@ The database has the following tables and schemas:
 | gh | github_repository | A table containing information about GitHub repositories | Yes |
 | gh | github_team | A table containing information about GitHub teams | Yes |
 | gh | repository_technology | A table to relate GitHub repositories and technologies | Yes |
-| gcp | copilot_team | A table containing information about GitHub Copilot usage at a team level | No |
-| gcp | copilot_organisation | A table containing information about GitHub Copilot usage at an organisation level | No |
+| gcp | copilot_team | A table containing information about GitHub Copilot usage at a team level | *No* |
+| gcp | copilot_organisation | A table containing information about GitHub Copilot usage at an organisation level | *No* |
 | gpd | check_status | A table containing information about the status of GitHub policy checks | Yes |
 | gpd | policy_check | A table containing information about GitHub policy checks | Yes |
 | gpd | secret_scanning | A table containing information about GitHub secret scanning alerts for repositories | Yes |
