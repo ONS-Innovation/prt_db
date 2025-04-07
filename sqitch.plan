@@ -17,3 +17,7 @@ tat-role [tat-schema] 2025-04-07T14:49:24Z kieran pritchard <kieran.pritchard@on
 tat-user [tat-schema tat-project tat-role] 2025-04-07T14:54:17Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool User Table.
 tat-contributor [tat-schema tat-project] 2025-04-07T15:00:02Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Contributor Table.
 tat-source-control [tat-schema] 2025-04-07T15:21:49Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Source Control Table.
+
+gh-organisation [gh-schema] 2025-04-07T15:27:01Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper Organisation Table.
+
+tat-source-link [tat-schema tat-project tat-source-control gh-organisation] 2025-04-07T15:27:05Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Source Link Table.
