@@ -26,3 +26,4 @@ dl-radar-quadrant [dl-schema] 2025-04-07T15:41:10Z kieran pritchard <kieran.prit
 dbo-technology [dbo-schema tat-technology-type dl-radar-quadrant] 2025-04-07T15:42:36Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Technology Table
 tat-project-technology [tat-schema tat-project dbo-technology] 2025-04-07T15:50:32Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Tech Audit Tool Project Technology Table.
 gh-repository [gh-schema gh-organisation] 2025-04-08T11:21:41Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper GitHub Repository Table
+gh-team [gh-schema gh-repository] 2025-04-08T11:31:02Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper GitHub Team Table
