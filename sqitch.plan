@@ -29,5 +29,7 @@ tat-project-technology [tat-schema tat-project dbo-technology] 2025-04-07T15:50:
 gh-repository [gh-schema gh-organisation] 2025-04-08T11:21:41Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper GitHub Repository Table
 gh-team [gh-schema gh-repository] 2025-04-08T11:31:02Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper GitHub Team Table
 gh-repository-technology [gh-schema gh-repository dbo-technology] 2025-04-08T11:38:30Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create GitHub Scraper Repository Technology Table
+
 gpd-policy-check [gpd-schema] 2025-04-08T11:44:52Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Policy Check Table.
 gpd-check-status [gpd-schema gpd-policy-check] 2025-04-08T11:49:32Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Check Status Table.
+gpd-secret-scanning [gpd-schema gh-repository] 2025-04-08T11:56:22Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Secret Scanning Table.
