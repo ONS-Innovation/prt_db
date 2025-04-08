@@ -34,3 +34,5 @@ gpd-policy-check [gpd-schema] 2025-04-08T11:44:52Z kieran pritchard <kieran.prit
 gpd-check-status [gpd-schema gpd-policy-check] 2025-04-08T11:49:32Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Check Status Table.
 gpd-secret-scanning [gpd-schema gh-repository] 2025-04-08T11:56:22Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Secret Scanning Table.
 gpd-dependabot [gpd-schema gh-repository] 2025-04-08T12:00:10Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Dependabot Table.
+
+dl-radar-ring [dl-schema] 2025-04-08T12:08:58Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Radar Ring Table.
