@@ -48,3 +48,11 @@ The database has the following tables and schemas:
 | dbo | technology | A table containing information about technologies | Yes |
 
 Further documentation about the database's design can be found on Confluence: [Repository Database](https://confluence.ons.gov.uk/display/KEH/Repository+Database) (*Internal ONLY*).
+
+## Views
+
+The database has the following views:
+
+| Schema Name | View Name | Description | Implemented? |
+|-------------|-----------|-------------|--------------|
+| dl | radar_movements | A view to track technology movements between rings and how much movement per change. | *No* |
