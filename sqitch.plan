@@ -37,5 +37,7 @@ gpd-dependabot [gpd-schema gh-repository] 2025-04-08T12:00:10Z kieran pritchard 
 
 dl-radar-ring [dl-schema] 2025-04-08T12:08:58Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Radar Ring Table.
 dl-radar-timeline [dl-schema dbo-technology dl-radar-ring] 2025-04-08T12:12:41Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Radar Timeline Table.
-dl-insert-default-quadrants [dl-schema dl-radar-quadrant] 2025-04-08T14:23:05Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add default radar quadrants to dl.radar_quadrant.
-dl-insert-default-rings [dl-schema dl-radar-ring] 2025-04-08T14:52:11Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Add default radar rings to dl.radar_ring.
+
+dl-insert-default-quadrants [dl-schema dl-radar-quadrant] 2025-04-08T14:23:05Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default radar quadrants into dl.radar_quadrant.
+dl-insert-default-rings [dl-schema dl-radar-ring] 2025-04-08T14:52:11Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default radar rings into dl.radar_ring.
+gh-insert-default-organisations [gh-schema gh-organisation] 2025-04-08T15:09:30Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default organisations into gh.organisation.
