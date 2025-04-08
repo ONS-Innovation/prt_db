@@ -7,7 +7,9 @@ WHERE q.name IN (
     'Infrastructure',
     'Languages',
     'Supporting Tools',
-    'Frameworks'
+    'Frameworks',
+    'Review',
+    'Ignore'
 );
 
 COMMIT;

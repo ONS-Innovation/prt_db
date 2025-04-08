@@ -2,13 +2,20 @@
 
 BEGIN;
 
-SELECT 1/COUNT(*) 
-FROM dl.radar_quadrant AS q 
-WHERE q.name IN (
-    'Infrastructure', 
-    'Languages', 
-    'Supporting Tools', 
-    'Frameworks'
-);
+DO $$
+BEGIN
+    ASSERT (
+        SELECT COUNT(*) = 6
+        FROM dl.radar_quadrant AS q 
+        WHERE q.name IN (
+            'Infrastructure', 
+            'Languages', 
+            'Supporting Tools', 
+            'Frameworks',
+            'Review',
+            'Ignore'
+        )
+    );
+END $$;
 
 ROLLBACK;
