@@ -42,3 +42,4 @@ dl-insert-default-quadrants [dl-schema dl-radar-quadrant] 2025-04-08T14:23:05Z k
 dl-insert-default-rings [dl-schema dl-radar-ring] 2025-04-08T14:52:11Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default radar rings into dl.radar_ring.
 gh-insert-default-organisations [gh-schema gh-organisation] 2025-04-08T15:09:30Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default organisations into gh.organisation.
 gpd-insert-default-checks [gpd-schema gpd-policy-check] 2025-04-08T15:17:52Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default policy checks into gpd.policy_check.
+tat-insert-default-roles [tat-schema tat-role] 2025-04-08T15:54:49Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default user roles into tat.role.
