@@ -36,3 +36,4 @@ gpd-secret-scanning [gpd-schema gh-repository] 2025-04-08T11:56:22Z kieran pritc
 gpd-dependabot [gpd-schema gh-repository] 2025-04-08T12:00:10Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Policy Dashboard Dependabot Table.
 
 dl-radar-ring [dl-schema] 2025-04-08T12:08:58Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Radar Ring Table.
+dl-radar-timeline [dl-schema dbo-technology dl-radar-ring] 2025-04-08T12:12:41Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Create Digital Landscape Radar Timeline Table.
