@@ -4,11 +4,11 @@
 
 BEGIN;
 
-INSERT INTO dl.radar_ring (name) 
+INSERT INTO dl.radar_ring (name)
 VALUES
-    ('Adopt'),
-    ('Trial'),
-    ('Assess'),
-    ('Hold');
+('Adopt'),
+('Trial'),
+('Assess'),
+('Hold');
 
 COMMIT;

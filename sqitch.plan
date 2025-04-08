@@ -41,3 +41,4 @@ dl-radar-timeline [dl-schema dbo-technology dl-radar-ring] 2025-04-08T12:12:41Z 
 dl-insert-default-quadrants [dl-schema dl-radar-quadrant] 2025-04-08T14:23:05Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default radar quadrants into dl.radar_quadrant.
 dl-insert-default-rings [dl-schema dl-radar-ring] 2025-04-08T14:52:11Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default radar rings into dl.radar_ring.
 gh-insert-default-organisations [gh-schema gh-organisation] 2025-04-08T15:09:30Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default organisations into gh.organisation.
+gpd-insert-default-checks [gpd-schema gpd-policy-check] 2025-04-08T15:17:52Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default policy checks into gpd.policy_check.

@@ -6,7 +6,7 @@ BEGIN;
 
 INSERT INTO gh.organisation (name)
 VALUES
-    ('ONSdigital'),
-    ('ONS-Innovation');
+('ONSdigital'),
+('ONS-Innovation');
 
 COMMIT;

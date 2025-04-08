@@ -6,11 +6,11 @@ BEGIN;
 
 INSERT INTO dl.radar_quadrant (name)
 VALUES
-    ('Infrastructure'),
-    ('Languages'),
-    ('Supporting Tools'),
-    ('Frameworks'),
-    ('Review'),
-    ('Ignore');
+('Infrastructure'),
+('Languages'),
+('Supporting Tools'),
+('Frameworks'),
+('Review'),
+('Ignore');
 
 COMMIT;
