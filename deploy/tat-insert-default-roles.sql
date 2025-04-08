@@ -5,7 +5,7 @@
 BEGIN;
 
 INSERT INTO tat.role (name)
-VALUES 
+VALUES
 ('Technical Contact'),
 ('Delivery Manager'),
 ('Editor');
