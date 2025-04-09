@@ -4,21 +4,22 @@
 BEGIN;
 
 CREATE OR REPLACE VIEW dl.ring_movement AS
+SELECT
+    *,
+    previous_ring - ring_id AS movement
+FROM (
     SELECT
-        *,
-        previous_ring - ring_id AS movement
-    FROM (
-        SELECT 
-            t1.*,
-            (
-                SELECT t2.ring_id
-                FROM dl.radar_timeline AS t2
-                WHERE t2.technology_id = t1.technology_id
-                    AND t2.change_date < t1.change_date
-                ORDER BY t2.change_date DESC
-                LIMIT 1
-            ) AS previous_ring
-        FROM dl.radar_timeline AS t1
-    );
+        t1.*,
+        (
+            SELECT t2.ring_id
+            FROM dl.radar_timeline AS t2
+            WHERE
+                t2.technology_id = t1.technology_id
+                AND t2.change_date < t1.change_date
+            ORDER BY t2.change_date DESC
+            LIMIT 1
+        ) AS previous_ring
+    FROM dl.radar_timeline AS t1
+);
 
 COMMIT;
