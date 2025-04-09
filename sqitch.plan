@@ -46,3 +46,5 @@ tat-insert-default-roles [tat-schema tat-role] 2025-04-08T15:54:49Z kieran pritc
 tat-insert-default-technology-types [tat-schema tat-technology-type] 2025-04-08T16:00:49Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Insert default types into tat.technology_type.
 
 @v0.0.1 2025-04-08T16:25:36Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Tag v0.0.1.
+
+tat-primary-project-technology [tat-project-technology] 2025-04-09T09:10:28Z kieran pritchard <kieran.pritchard@ons.gov.uk> # Alter tat.project_technology to add new is_primary column. This will allow tat to mark technologies as primary or secondary.
