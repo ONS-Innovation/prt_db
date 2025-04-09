@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Switch to gh-pages branch
-        run: git checkout gh-pages
       - name: Start PostgreSQL
         run: docker-compose up -d
       - name: Wait for PostgreSQL to be ready
