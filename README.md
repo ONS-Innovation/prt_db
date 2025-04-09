@@ -24,6 +24,10 @@ Integrated tools include:
     - [Sqitch](#sqitch)
     - [First Time Setup](#first-time-setup)
     - [Resetting the Database](#resetting-the-database)
+  - [Documentation](#documentation)
+    - [`./docs`](#docs)
+    - [SchemaSpy](#schemaspy)
+      - [Build SchemaSpy GitHub Action](#build-schemaspy-github-action)
   - [Linting and Formatting](#linting-and-formatting)
     - [SQLFluff](#sqlfluff)
       - [SQLFluff Prerequisites](#sqlfluff-prerequisites)
@@ -168,6 +172,48 @@ docker container rm postgres
 ```
 
 This will remove the PostgreSQL container. You can then recreate the container and database using the commands above.
+
+## Documentation
+
+### `./docs`
+
+This directory contains any manual documentation for the project.
+
+[`./docs`](./docs)
+
+### SchemaSpy
+
+This project uses SchemaSpy to create database documentation.
+
+To generate the database documentation locally, you can use the following command:
+
+```bash
+docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -all
+```
+
+**Please Note:** Sometimes this command will error with `Error response from daemon: error while creating mount source path '.../prt_db/schemaspy': chown .../prt_db/schemaspy: permission denied.` If this happens, rerun the command and it should work.
+
+This command will run SchemaSpy in a Docker container and generate the database documentation for the `prt_db` database. The documentation will be saved in the `schemaspy` directory.
+
+[./schemaspy](./schemaspy)
+
+To view the documentation, open the `index.html` file in the `schemaspy` directory in your web browser.
+
+The above will generate documentation for all schemas in the database (`-all`). To generate documentation for a specific list schema, replace `-all` with `-schemas <schema1>,<schema2>,...`.
+
+For example, to generate documentation for the `tat` and `dl` schemas, you can use the following command:
+
+```bash
+docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tat,dl
+```
+
+#### Build SchemaSpy GitHub Action
+
+This repository uses GitHub Actions to build the SchemaSpy documentation on every push to the `main` branch. The workflow file is located in the `.github/workflows` directory.
+
+[./.github/workflows/build_schemaspy.yml](./.github/workflows/build_schemaspy.yml)
+
+^ TODO
 
 ## Linting and Formatting
 
