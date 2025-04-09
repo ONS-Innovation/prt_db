@@ -28,6 +28,8 @@ Integrated tools include:
     - [`./docs`](#docs)
     - [SchemaSpy](#schemaspy)
       - [Deploy SchemaSpy Docuementation to GitHub Pages](#deploy-schemaspy-docuementation-to-github-pages)
+        - [SchemaSpy Deployment Prerequisites](#schemaspy-deployment-prerequisites)
+        - [SchemaSpy Deployment](#schemaspy-deployment)
         - [Updating the Documented Schemas](#updating-the-documented-schemas)
   - [Linting and Formatting](#linting-and-formatting)
     - [SQLFluff](#sqlfluff)
@@ -209,6 +211,14 @@ docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/sche
 ```
 
 #### Deploy SchemaSpy Docuementation to GitHub Pages
+
+##### SchemaSpy Deployment Prerequisites
+
+- Ensure that you are on the `main` branch of the repository.
+- Ensure that there are no uncommitted changes in the repository (The script will remove them).
+- Ensure that the database is running and the Sqitch changes fully deployed (See [Local Development](#local-development)).
+
+##### SchemaSpy Deployment
 
 To deploy the SchemaSpy documentation to GitHub Pages, you can use the following command:
 
