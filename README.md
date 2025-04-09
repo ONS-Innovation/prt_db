@@ -27,7 +27,8 @@ Integrated tools include:
   - [Documentation](#documentation)
     - [`./docs`](#docs)
     - [SchemaSpy](#schemaspy)
-      - [Build SchemaSpy GitHub Action](#build-schemaspy-github-action)
+      - [Deploy SchemaSpy Docuementation to GitHub Pages](#deploy-schemaspy-docuementation-to-github-pages)
+        - [Updating the Documented Schemas](#updating-the-documented-schemas)
   - [Linting and Formatting](#linting-and-formatting)
     - [SQLFluff](#sqlfluff)
       - [SQLFluff Prerequisites](#sqlfluff-prerequisites)
@@ -207,13 +208,30 @@ For example, to generate documentation for the `tat` and `dl` schemas, you can u
 docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tat,dl
 ```
 
-#### Build SchemaSpy GitHub Action
+#### Deploy SchemaSpy Docuementation to GitHub Pages
 
-This repository uses GitHub Actions to build the SchemaSpy documentation on every push to the `main` branch. The workflow file is located in the `.github/workflows` directory.
+To deploy the SchemaSpy documentation to GitHub Pages, you can use the following command:
 
-[./.github/workflows/build_schemaspy.yml](./.github/workflows/build_schemaspy.yml)
+```bash
+sh deploy_schemaspy.sh
+```
 
-^ TODO
+This shell script will build the SchemaSpy documentation onto an empty branch called `gh-pages`. This branch is used to host the documentation on GitHub Pages.
+
+Once the script pushes the branch to GitHub, GitHub Pages will automatically build the documentation from the `gh-pages` branch.
+
+##### Updating the Documented Schemas
+
+Currently, the script only creates documentation for the following database schemas:
+
+- .tat
+- .dl
+- .gh
+- .gcp
+- .gpd
+- .dbo
+
+If more schemas are added to the database, the script will need to be updated to include them.
 
 ## Linting and Formatting
 
