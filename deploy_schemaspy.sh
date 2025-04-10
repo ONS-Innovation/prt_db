@@ -17,3 +17,7 @@ git push origin gh-pages
 # Switch back to the main branch and delete the local gh-pages branch
 git checkout main
 git branch -D gh-pages
+
+# Reset to match the remote main branch
+git fetch origin
+git reset --hard origin/main
