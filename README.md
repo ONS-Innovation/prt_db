@@ -19,11 +19,9 @@ Integrated tools include:
   - [Local Development](#local-development)
     - [Contributing](#contributing)
     - [Development Prerequisites](#development-prerequisites)
-    - [PostgreSQL](#postgresql)
-      - [PostgreSQL Client (Optional)](#postgresql-client-optional)
-    - [Sqitch](#sqitch)
-    - [First Time Setup](#first-time-setup)
-    - [Resetting the Database](#resetting-the-database)
+    - [Makefile](#makefile)
+      - [Project Setup](#project-setup)
+    - [Manual Project Setup](#manual-project-setup)
   - [Documentation](#documentation)
     - [`./docs`](#docs)
     - [SchemaSpy](#schemaspy)
@@ -66,115 +64,41 @@ Contributions to this project are welcome. Please read the [CONTRIBUTING](./.git
 - [Docker](https://www.docker.com/) (Docker CLI)
 - [Docker Compose](https://docs.docker.com/compose/) (Docker CLI)
 
-### PostgreSQL
+### Makefile
 
-This project uses a containerised PostgreSQL database for local development. The database is managed using [Docker Compose](https://docs.docker.com/compose/).
+This project uses a Makefile to run common commands easily. To see all available commands, run the following command:
 
-Firstly, ensure the Docker daemon is running. If you are using Colima (Recommended), you can start the docker daemon with the following command:
+```bash
+make all
+```
+
+#### Project Setup
+
+Before continuing please ensure that you have a docker daemon running. You can do this by running the following command:
 
 ```bash
 colima start
 ```
 
-To run the database locally, run the following command:
+To easily set up the project, use the following make command:
 
 ```bash
-docker-compose up
+make init
 ```
 
-This will start the PostgreSQL database in a Docker container. The database will be accessible at `localhost:5432` with the username `postgres` and password `postgres`.
+This will guide you through the setup process and set up the project for you. This includes setting up the PostgreSQL database, Sqitch and any other dependencies.
 
-To stop the database, you can use the following command:
+Once complete, you can run the following command to start the PostgreSQL database:
 
 ```bash
-docker-compose down
+make start_database
 ```
 
-or control + c in the terminal where the database is running.
+### Manual Project Setup
 
-#### PostgreSQL Client (Optional)
+If you prefer to set up the project manually, you can follow the in [./docs/manual_setup.md](./docs/manual_setup.md) file. This file contains a step-by-step guide to setting up the project manually.
 
-To connect to the PostgreSQL database, you can use any PostgreSQL client. For example, you can use [pgAdmin](https://www.pgadmin.org/)(Recommended) or [DBeaver](https://dbeaver.io/).
-
-To install pgAdmin, you can use the following command:
-
-```bash
-brew install --cask pgadmin4
-```
-
-Once pgAdmin is installed, you can open it and create a new connection to the PostgreSQL database. Use the following settings:
-
-- Host: `localhost`
-- Port: `5432`
-- Username: `postgres`
-- Password: `postgres`
-Once you have connected to the database, you can run SQL queries and manage the database using pgAdmin.
-
-### Sqitch
-
-This project uses [Sqitch](https://sqitch.org/) for database version control. Sqitch is a database change management application that allows you to manage your database schema changes in a version-controlled manner.
-
-To install Sqitch, you can use the following command:
-
-```bash
-brew install sqitch
-```
-
-or use a containerised version of Sqitch (Recommended):
-
-```bash
-docker pull sqitch/sqitch
-curl -L https://git.io/JJKCn -o sqitch && chmod +x sqitch
-```
-
-*^ This pulls the containerised version of Sqitch and its shell script wrapper.*
-
-and use its shell script wrapper (Included in the repository):
-
-```bash
-./sqitch help
-```
-
-Before using Sqitch, you will need to do some local configuration.
-
-Create the following file, `~/.sqitch/sqitch.conf`, and add the following:
-
-```conf
-[user]
-name = <Full Name>
-email = <ONS Email Address>
-```
-
-Filling in the `<Full Name>` and `<ONS Email Address>` with your own details.
-
-### First Time Setup
-
-When running the PostgreSQL database for the first time, you will need to create a new database for the project. This is done using the `docker exec` command to run a command inside the PostgreSQL container.
-
-To do this, run the following command:
-
-```bash
-docker exec -it postgres psql -U postgres -c "CREATE DATABASE prt_db;"
-```
-
-This will create a new database called `prt_db` within the PostgreSQL container.
-Once the database is created, you can use Sqitch to deploy the database model.
-
-```bash
-sqitch deploy prt_db
-```
-
-This will deploy the database model to the `prt_db` database. Sqitch will the necessary changes defined in the `deploy` directory in the order specified in `sqitch.plan`.
-
-### Resetting the Database
-
-In order to reset the database, you can use the following command:
-
-```bash
-docker container rm postgres
-```
-
-This will remove the PostgreSQL container. You can then recreate the container and database using the commands above.
+Using the automated setup is recommended, as it will save you time and ensure that everything is set up correctly. See [Project Setup](#project-setup).
 
 ## Documentation
 
@@ -189,6 +113,12 @@ This directory contains any manual documentation for the project.
 This project uses SchemaSpy to create database documentation.
 
 To generate the database documentation locally, you can use the following command:
+
+```bash
+make generate_local_docs
+```
+
+or,
 
 ```bash
 docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -all
@@ -223,6 +153,12 @@ docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/sche
 To deploy the SchemaSpy documentation to GitHub Pages, you can use the following command:
 
 ```bash
+make deploy_docs
+```
+
+or, if you prefer to run the deployment script directly:
+
+```bash
 sh deploy_schemaspy.sh
 ```
 
@@ -244,6 +180,33 @@ Currently, the script only creates documentation for the following database sche
 If more schemas are added to the database, the script will need to be updated to include them.
 
 ## Linting and Formatting
+
+To install the project's linters and formatters, run the following command:
+
+```bash
+make install_linters
+```
+
+This will install all the linters and formatters used in the project. The linters and formatters used in this project are:
+
+- [SQLFluff](https://docs.sqlfluff.com/en/stable/index.html) - SQL linter and formatter
+- [Markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) - Markdown linter and formatter
+
+To run all linters and formatters, run the following command:
+
+```bash
+make lint
+```
+
+To apply autofixes, run the following command:
+
+```bash
+make fix
+```
+
+This will run all the linters and formatters and apply any autofixes that are available.
+
+More information about each linter/formatter can be found in the sections below.
 
 ### SQLFluff
 
@@ -268,10 +231,22 @@ pip install sqlfluff
 Lint all SQL files:
 
 ```bash
+make sql_lint
+```
+
+or
+
+```bash
 sqlfluff lint .
 ```
 
 Fix all SQL files:
+
+```bash
+make sql_fix
+```
+
+or
 
 ```bash
 sqlfluff fix .
@@ -318,10 +293,22 @@ brew install markdownlint-cli
 Lint all markdown files:
 
 ```bash
+make md_lint
+```
+
+or
+
+```bash
 markdownlint .
 ```
 
 Fix all markdown files:
+
+```bash
+make md_fix
+```
+
+or
 
 ```bash
 markdownlint --fix .
