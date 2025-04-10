@@ -2,6 +2,9 @@
 git branch gh-pages
 git checkout gh-pages
 
+# Pull the latest changes from the remote gh-pages branch
+git pull origin gh-pages
+
 # Remove all files in the current directory
 # This will ensure that only the SchemaSpy documentation is present in the gh-pages branch
 rm -rf *
