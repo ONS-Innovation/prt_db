@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="prt_db" schema="dl" type="PostgreSQL - 17.4 (Debian 17.4-1.pgdg120+2)">
+   <sequences>
+      <sequence increment="1" name="radar_quadrant_quadrant_id_seq" startValue="1"/>
+      <sequence increment="1" name="radar_ring_ring_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="radar_quadrant" remarks="" schema="dl" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dl.radar_quadrant_quadrant_id_seq'::regclass)" digits="0" id="0" name="quadrant_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="quadrant_id" foreignKey="technology_quadrant_id_fkey" implied="false" onDeleteCascade="false" schema="dbo" table="technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="quadrant_id" sequenceNumberInPK="1"/>
+         <index name="radar_quadrant_pkey" unique="true">
+            <column ascending="true" name="quadrant_id"/>
+         </index>
+      </table>
+      <table name="radar_ring" remarks="" schema="dl" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dl.radar_ring_ring_id_seq'::regclass)" digits="0" id="0" name="ring_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="ring_id" foreignKey="radar_timeline_ring_id_fkey" implied="false" onDeleteCascade="false" schema="dl" table="radar_timeline"/>
+            <child column="ring_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="dl" table="ring_movement"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="20" type="varchar" typeCode="12"/>
+         <primaryKey column="ring_id" sequenceNumberInPK="1"/>
+         <index name="radar_ring_pkey" unique="true">
+            <column ascending="true" name="ring_id"/>
+         </index>
+      </table>
+      <table name="radar_timeline" remarks="" schema="dl" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="technology_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="technology_id" foreignKey="radar_timeline_technology_id_fkey" implied="false" onDeleteCascade="false" schema="dbo" table="technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ring_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="ring_id" foreignKey="radar_timeline_ring_id_fkey" implied="false" onDeleteCascade="false" schema="dl" table="radar_ring"/>
+         </column>
+         <column autoUpdated="false" defaultValue="now()" digits="6" id="2" name="change_date" nullable="false" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="reason" nullable="false" remarks="" size="1000" type="varchar" typeCode="12"/>
+         <primaryKey column="technology_id" sequenceNumberInPK="1"/>
+         <primaryKey column="ring_id" sequenceNumberInPK="2"/>
+         <primaryKey column="change_date" sequenceNumberInPK="3"/>
+         <index name="radar_timeline_pkey" unique="true">
+            <column ascending="true" name="technology_id"/>
+            <column ascending="true" name="ring_id"/>
+            <column ascending="true" name="change_date"/>
+         </index>
+      </table>
+      <table name="ring_movement" numRows="0" remarks="" schema="dl" type="VIEW" viewSql=" SELECT technology_id,&#10;    ring_id,&#10;    change_date,&#10;    reason,&#10;    previous_ring,&#10;    (previous_ring - ring_id) AS movement&#10;   FROM ( SELECT t1.technology_id,&#10;            t1.ring_id,&#10;            t1.change_date,&#10;            t1.reason,&#10;            ( SELECT t2.ring_id&#10;                   FROM dl.radar_timeline t2&#10;                  WHERE ((t2.technology_id = t1.technology_id) AND (t2.change_date &lt; t1.change_date))&#10;                  ORDER BY t2.change_date DESC&#10;                 LIMIT 1) AS previous_ring&#10;           FROM dl.radar_timeline t1) unnamed_subquery;">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="technology_id" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ring_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="ring_id" foreignKey="Implied Constraint" implied="true" onDeleteCascade="false" schema="dl" table="radar_ring"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="change_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="reason" nullable="true" remarks="" size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="previous_ring" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="movement" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+      </table>
+   </tables>
+</database>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="prt_db" schema="tat" type="PostgreSQL - 17.4 (Debian 17.4-1.pgdg120+2)">
+   <sequences>
+      <sequence increment="1" name="contributor_contributor_id_seq" startValue="1"/>
+      <sequence increment="1" name="documentation_documentation_id_seq" startValue="1"/>
+      <sequence increment="1" name="hosting_hosting_id_seq" startValue="1"/>
+      <sequence increment="1" name="programme_programme_id_seq" startValue="1"/>
+      <sequence increment="1" name="project_project_id_seq" startValue="1"/>
+      <sequence increment="1" name="role_role_id_seq" startValue="1"/>
+      <sequence increment="1" name="source_control_source_control_id_seq" startValue="1"/>
+      <sequence increment="1" name="technology_type_technology_type_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="contributor" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.contributor_contributor_id_seq'::regclass)" digits="0" id="0" name="contributor_id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="contributor_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="contributor_id" sequenceNumberInPK="1"/>
+         <index name="contributor_pkey" unique="true">
+            <column ascending="true" name="contributor_id"/>
+         </index>
+      </table>
+      <table name="documentation" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.documentation_documentation_id_seq'::regclass)" digits="0" id="0" name="documentation_id" nullable="false" remarks="" size="10" type="serial" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="documentation_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="link" nullable="true" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="documentation_id" sequenceNumberInPK="1"/>
+         <index name="documentation_pkey" unique="true">
+            <column ascending="true" name="documentation_id"/>
+         </index>
+      </table>
+      <table name="hosting" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.hosting_hosting_id_seq'::regclass)" digits="0" id="0" name="hosting_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="hosting_id" foreignKey="project_hosting_hosting_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project_hosting"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="10" type="varchar" typeCode="12"/>
+         <primaryKey column="hosting_id" sequenceNumberInPK="1"/>
+         <index name="hosting_pkey" unique="true">
+            <column ascending="true" name="hosting_id"/>
+         </index>
+      </table>
+      <table name="programme" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.programme_programme_id_seq'::regclass)" digits="0" id="0" name="programme_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="programme_id" foreignKey="project_programme_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="short_name" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <primaryKey column="programme_id" sequenceNumberInPK="1"/>
+         <index name="programme_pkey" unique="true">
+            <column ascending="true" name="programme_id"/>
+         </index>
+      </table>
+      <table name="project" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.project_project_id_seq'::regclass)" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="project_id" foreignKey="contributor_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="contributor"/>
+            <child column="project_id" foreignKey="documentation_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="documentation"/>
+            <child column="project_id" foreignKey="project_hosting_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project_hosting"/>
+            <child column="project_id" foreignKey="project_technology_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project_technology"/>
+            <child column="project_id" foreignKey="source_link_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="source_link"/>
+            <child column="project_id" foreignKey="user_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="programme_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="programme_id" foreignKey="project_programme_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="programme"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="short_name" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="description" nullable="true" remarks="" size="1000" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="stage" nullable="true" remarks="" size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="developed" nullable="true" remarks="" size="30" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="hosted" nullable="true" remarks="" size="30" type="varchar" typeCode="12"/>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <index name="project_pkey" unique="true">
+            <column ascending="true" name="project_id"/>
+         </index>
+      </table>
+      <table name="project_hosting" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="project_hosting_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="hosting_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="hosting_id" foreignKey="project_hosting_hosting_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="hosting"/>
+         </column>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <primaryKey column="hosting_id" sequenceNumberInPK="2"/>
+         <index name="project_hosting_pkey" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="hosting_id"/>
+         </index>
+      </table>
+      <table name="project_technology" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="project_technology_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="technology_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="technology_id" foreignKey="project_technology_technology_id_fkey" implied="false" onDeleteCascade="false" schema="dbo" table="technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="is_primary" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+      </table>
+      <table name="role" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.role_role_id_seq'::regclass)" digits="0" id="0" name="role_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="role_id" foreignKey="user_role_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="user"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
+         <primaryKey column="role_id" sequenceNumberInPK="1"/>
+         <index name="role_pkey" unique="true">
+            <column ascending="true" name="role_id"/>
+         </index>
+      </table>
+      <table name="source_control" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.source_control_source_control_id_seq'::regclass)" digits="0" id="0" name="source_control_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="source_control_id" foreignKey="source_link_source_control_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="source_link"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
+         <primaryKey column="source_control_id" sequenceNumberInPK="1"/>
+         <index name="source_control_pkey" unique="true">
+            <column ascending="true" name="source_control_id"/>
+         </index>
+      </table>
+      <table name="source_link" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="source_control_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="source_control_id" foreignKey="source_link_source_control_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="source_control"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="source_link_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="url" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="organisation_id" nullable="true" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="organisation_id" foreignKey="source_link_organisation_id_fkey" implied="false" onDeleteCascade="false" schema="gh" table="organisation"/>
+         </column>
+      </table>
+      <table name="technology_type" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('tat.technology_type_technology_type_id_seq'::regclass)" digits="0" id="0" name="technology_type_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="technology_type_id" foreignKey="technology_technology_type_id_fkey" implied="false" onDeleteCascade="false" schema="dbo" table="technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="30" type="varchar" typeCode="12"/>
+         <primaryKey column="technology_type_id" sequenceNumberInPK="1"/>
+         <index name="technology_type_pkey" unique="true">
+            <column ascending="true" name="technology_type_id"/>
+         </index>
+      </table>
+      <table name="user" remarks="" schema="tat" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="project_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="project_id" foreignKey="user_project_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="project"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="role_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="role_id" foreignKey="user_role_id_fkey" implied="false" onDeleteCascade="false" schema="tat" table="role"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="email" nullable="false" remarks="" size="120" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="grade" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <primaryKey column="project_id" sequenceNumberInPK="1"/>
+         <primaryKey column="role_id" sequenceNumberInPK="2"/>
+         <primaryKey column="email" sequenceNumberInPK="3"/>
+         <index name="user_pkey" unique="true">
+            <column ascending="true" name="project_id"/>
+            <column ascending="true" name="role_id"/>
+            <column ascending="true" name="email"/>
+         </index>
+      </table>
+   </tables>
+</database>
