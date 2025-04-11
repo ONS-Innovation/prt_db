@@ -27,6 +27,8 @@ We expect that all database changes following the following standards:
 - Changes should also include a description of the change.
 - Previously written sqitch changes should not be modified. If you need to make a change to a previously written change, you should create a new change that amends the previous.
 
+For more information on using Sqitch, please refer to our [Sqitch documentation](../docs/sqitch_usage.md) or look at [Sqitch's PostgreSQL Tutorial](https://sqitch.org/docs/manual/sqitchtutorial/).
+
 ### SQLFluff
 
 SQLFluff is used for linting SQL code. Please ensure that your SQL code passes all SQLFluff checks before submitting a pull request.

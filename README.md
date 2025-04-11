@@ -48,6 +48,8 @@ Integrated tools include:
 
 This project uses Sqitch for database version control. Sqitch organises database changes (`.sql` files) into changesets. Each set has a deploy, revert and verify script. The changesets are stored in the `./deploy`, `./revert` and `./verify` directories respectively.
 
+When using Sqitch, please refer to the repository's [contributing guidelines](./.github/CONTRIBUTING.md#sqitch) for more information on how to use Sqitch and the conventions used in this project.
+
 ## Database Structure
 
 The database is structured into schemas. Each schema contains tables, views and other database objects relating to the different tools the database integrates with. The schemas are:
