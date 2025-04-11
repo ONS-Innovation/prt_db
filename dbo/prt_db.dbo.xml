@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="prt_db" schema="dbo" type="PostgreSQL - 17.4 (Debian 17.4-1.pgdg120+2)">
+   <sequences>
+      <sequence increment="1" name="technology_technology_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="technology" remarks="" schema="dbo" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('dbo.technology_technology_id_seq'::regclass)" digits="0" id="0" name="technology_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="technology_id" foreignKey="radar_timeline_technology_id_fkey" implied="false" onDeleteCascade="false" schema="digital_landscape" table="radar_timeline"/>
+            <child column="technology_id" foreignKey="repository_technology_technology_id_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="repository_technology"/>
+            <child column="technology_id" foreignKey="project_technology_technology_id_fkey" implied="false" onDeleteCascade="false" schema="tech_audit" table="project_technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="technology_type_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="technology_type_id" foreignKey="technology_technology_type_id_fkey" implied="false" onDeleteCascade="false" schema="tech_audit" table="technology_type"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="quadrant_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="quadrant_id" foreignKey="technology_quadrant_id_fkey" implied="false" onDeleteCascade="false" schema="digital_landscape" table="radar_quadrant"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="name" nullable="false" remarks="" size="50" type="varchar" typeCode="12"/>
+         <primaryKey column="technology_id" sequenceNumberInPK="1"/>
+         <index name="technology_pkey" unique="true">
+            <column ascending="true" name="technology_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

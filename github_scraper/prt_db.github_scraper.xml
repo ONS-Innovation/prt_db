@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="prt_db" schema="github_scraper" type="PostgreSQL - 17.4 (Debian 17.4-1.pgdg120+2)">
+   <sequences>
+      <sequence increment="1" name="organisation_organisation_id_seq" startValue="1"/>
+   </sequences>
+   <tables>
+      <table name="github_repository" remarks="" schema="github_scraper" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="url" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <child column="url" foreignKey="check_status_url_fkey" implied="false" onDeleteCascade="false" schema="github_policy" table="check_status"/>
+            <child column="url" foreignKey="dependabot_url_fkey" implied="false" onDeleteCascade="false" schema="github_policy" table="dependabot"/>
+            <child column="url" foreignKey="secret_scanning_url_fkey" implied="false" onDeleteCascade="false" schema="github_policy" table="secret_scanning"/>
+            <child column="url" foreignKey="github_team_url_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="github_team"/>
+            <child column="url" foreignKey="repository_technology_url_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="repository_technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="organisation_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="organisation_id" foreignKey="github_repository_organisation_id_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="organisation"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="name" nullable="false" remarks="" size="60" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="visibility" nullable="false" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="is_archived" nullable="false" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="last_commit" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <primaryKey column="url" sequenceNumberInPK="1"/>
+         <index name="github_repository_pkey" unique="true">
+            <column ascending="true" name="url"/>
+         </index>
+      </table>
+      <table name="github_team" remarks="" schema="github_scraper" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="url" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <parent column="url" foreignKey="github_team_url_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="github_repository"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="team_name" nullable="false" remarks="" size="255" type="varchar" typeCode="12"/>
+         <primaryKey column="url" sequenceNumberInPK="1"/>
+         <primaryKey column="team_name" sequenceNumberInPK="2"/>
+         <index name="github_team_pkey" unique="true">
+            <column ascending="true" name="url"/>
+            <column ascending="true" name="team_name"/>
+         </index>
+      </table>
+      <table name="organisation" remarks="" schema="github_scraper" type="TABLE">
+         <column autoUpdated="true" defaultValue="nextval('github_scraper.organisation_organisation_id_seq'::regclass)" digits="0" id="0" name="organisation_id" nullable="false" remarks="" size="10" type="serial" typeCode="4">
+            <child column="organisation_id" foreignKey="github_repository_organisation_id_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="github_repository"/>
+            <child column="organisation_id" foreignKey="source_link_organisation_id_fkey" implied="false" onDeleteCascade="false" schema="tech_audit" table="source_link"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="name" nullable="false" remarks="" size="39" type="varchar" typeCode="12"/>
+         <primaryKey column="organisation_id" sequenceNumberInPK="1"/>
+         <index name="organisation_pkey" unique="true">
+            <column ascending="true" name="organisation_id"/>
+         </index>
+      </table>
+      <table name="repository_technology" remarks="" schema="github_scraper" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="url" nullable="false" remarks="" size="255" type="varchar" typeCode="12">
+            <parent column="url" foreignKey="repository_technology_url_fkey" implied="false" onDeleteCascade="false" schema="github_scraper" table="github_repository"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="technology_id" nullable="false" remarks="" size="10" type="int4" typeCode="4">
+            <parent column="technology_id" foreignKey="repository_technology_technology_id_fkey" implied="false" onDeleteCascade="false" schema="dbo" table="technology"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="size" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="percentage" nullable="true" remarks="" size="0" type="numeric" typeCode="2"/>
+         <primaryKey column="url" sequenceNumberInPK="1"/>
+         <primaryKey column="technology_id" sequenceNumberInPK="2"/>
+         <index name="repository_technology_pkey" unique="true">
+            <column ascending="true" name="url"/>
+            <column ascending="true" name="technology_id"/>
+         </index>
+      </table>
+   </tables>
+</database>

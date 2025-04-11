@@ -1,1 +1,0 @@
-docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -all
