@@ -21,10 +21,12 @@ It is recommended to follow [Sqitch's PostgreSQL tutorial](https://sqitch.org/do
     - [Viewing the Change Log](#viewing-the-change-log)
     - [Adding New Changes](#adding-new-changes)
     - [Editing Existing Changes](#editing-existing-changes)
+      - [deploy.sql](#deploysql)
+      - [revert.sql](#revertsql)
+      - [verify.sql](#verifysql)
     - [Tagging and Distrubution](#tagging-and-distrubution)
       - [Tag](#tag)
       - [Bundle](#bundle)
-
 
 ## Getting Started
 
@@ -78,7 +80,7 @@ To deploy changes to the database, you can use the following command:
 ./sqitch deploy
 ```
 
-This will apply all changes within `sqitch.plan` to the database. 
+This will apply all changes within `sqitch.plan` to the database.
 
 Further documentation is available at [Sqitch Deploy](https://sqitch.org/docs/manual/sqitch-deploy/).
 
@@ -90,7 +92,7 @@ To revert changes, you can use the following command:
 ./sqitch revert
 ```
 
-This will revert all changes in the `sqitch.plan` file. 
+This will revert all changes in the `sqitch.plan` file.
 
 You can also specify the number of changes to revert using `@HEAD`:
 
@@ -166,9 +168,9 @@ Further documentation is available at [Sqitch Add](https://sqitch.org/docs/manua
 
 ### Editing Existing Changes
 
-**DO NOT EDIT EXISTING SQL CHANGES AS SQITCH WILL NOT RECOGNISE THEM**
-
 If you want to edit an existing change, you need to make a new Sqitch change which applies the appropriate update.
+
+**Note:** It is vital that you do not edit existing changes, as this can cause issues with the existing deployments and the changes won't get picked up. You must create a new change which applies the appropriate update.
 
 For example, if adding a column to a database table, you would create a new change which adds the column to the table, and then create a revert change which removes the column from the table.
 
@@ -176,18 +178,19 @@ For example, if adding a column to a database table, you would create a new chan
 ./sqitch add new_column --require create_table -n "Add new column to table"
 ````
 
-**deploy.sql**
+#### deploy.sql
 
 ```sql
 ALTER TABLE table_name ADD COLUMN new_column_name data_type;
 ```
-**revert.sql**
+
+#### revert.sql
 
 ```sql
 ALTER TABLE table_name DROP COLUMN new_column_name;
 ```
 
-**verify.sql**
+#### verify.sql
 
 ```sql
 SELECT new_column_name FROM table_name WHERE FALSE;
@@ -213,6 +216,7 @@ When naming tags, it is recommended to use [Semantic Versioning](https://semver.
 vMAJOR.MINOR.PATCH
 
 Where:
+
 - MAJOR: Major version number, incremented for incompatible changes.
 - MINOR: Minor version number, incremented for new features that are backwards compatible.
 - PATCH: Patch version number, incremented for backwards compatible bug fixes.
@@ -226,6 +230,7 @@ To bundle up a sqitch project for distribution, you can use the following comman
 ```
 
 This will create a `bundle` directory containing the necessary files for distribution. The bundle will contain:
+
 - The `sqitch.plan` file.
 - The `sqitch.conf` file.
 - And all the necessary SQL files for the changes.
