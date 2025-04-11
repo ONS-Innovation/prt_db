@@ -7,7 +7,7 @@ all: ## Show the available make targets.
 
 .PHONY: init
 init: ## Initialise the project ready for development
-	sh init.sh
+	sh ./shell_scripts/init.sh
 
 .PHONY: start_database
 start_database: ## Start the database container.
@@ -59,11 +59,11 @@ install_pgadmin: ## Install pgAdmin for PostgreSQL GUI.
 
 .PHONY: generate_local_docs
 generate_local_docs: ## Generate local documentation using SchemaSpy.
-	docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -all
+	sh ./shell_scripts/generate_schemaspy.sh
 
 .PHONY: deploy_docs
 deploy_docs: ## Deploy SchemaSpy documentation to GitHub Pages.
-	sh deploy_schemaspy.sh
+	sh ./shell_scripts/deploy_schemaspy.sh
 
 .PHONY: install_linters
 install_linters: ## Install the project's linters
