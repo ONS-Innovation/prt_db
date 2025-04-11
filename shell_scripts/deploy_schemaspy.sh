@@ -1,3 +1,14 @@
+echo "---"
+echo "This script deploys the SchemaSpy documentation to the gh-pages branch of the repository."
+echo "Make sure you have the postgres database running with the latest Sqitch changes deployed before running this script."
+read -p "Are you sure you want to continue? (y/n): " confirm
+
+if [[ $confirm != "y" ]]; 
+then
+    echo "Aborting deployment."
+    exit 1
+fi
+
 # Create gh-pages branch if it does not exist and change to it
 git branch gh-pages
 git checkout gh-pages
