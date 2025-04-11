@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS gpd.secret_scanning;
+DROP TABLE IF EXISTS github_policy.secret_scanning;
 
 COMMIT;

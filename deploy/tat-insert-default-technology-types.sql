@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO tat.technology_type (name)
+INSERT INTO tech_audit.technology_type (name)
 VALUES
 ('hosting'),
 ('database'),

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('gh', 'usage');
+SELECT pg_catalog.has_schema_privilege('github_scraper', 'usage');
 
 ROLLBACK;

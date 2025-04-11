@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM gh.organisation AS o
+DELETE FROM github_scraper.organisation AS o
 WHERE o.name IN (
     'ONSdigital',
     'ONS-Innovation'

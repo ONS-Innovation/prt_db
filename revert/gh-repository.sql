@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS gh.github_repository;
+DROP TABLE IF EXISTS github_scraper.github_repository;
 
 COMMIT;

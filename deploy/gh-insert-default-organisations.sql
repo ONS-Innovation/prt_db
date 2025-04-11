@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO gh.organisation (name)
+INSERT INTO github_scraper.organisation (name)
 VALUES
 ('ONSdigital'),
 ('ONS-Innovation');

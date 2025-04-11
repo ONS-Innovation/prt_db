@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA tat;
+DROP SCHEMA tech_audit;
 
 COMMIT;

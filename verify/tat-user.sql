@@ -6,7 +6,7 @@ BEGIN;
 -- This can be ignored.
 
 SELECT *
-FROM tat.user   -- noqa: PRS
+FROM tech_audit.user   -- noqa: PRS
 WHERE FALSE;
 
 ROLLBACK;

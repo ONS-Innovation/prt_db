@@ -52,12 +52,14 @@ This project uses Sqitch for database version control. Sqitch organises database
 
 The database is structured into schemas. Each schema contains tables, views and other database objects relating to the different tools the database integrates with. The schemas are:
 
-- `tech_audit` - Tech Audit Tool
-- `digital_landscape` - Digital Landscape
-- `gh_scraper` - GitHub Scraper
-- `gh_copilot` - GitHub Copilot Dashboard
-- `gh_policy` - GitHub Policy Dashboard
-- `dbo` - General database objects that don't belong to specific tools.
+- `tech_audit` - Tech Audit Tool (tat)
+- `digital_landscape` - Digital Landscape (dl)
+- `gh_scraper` - GitHub Scraper (gh)
+- `gh_copilot` - GitHub Copilot Dashboard (gcp)
+- `gh_policy` - GitHub Policy Dashboard (gpd)
+- `dbo` - General database objects that don't belong to specific tools (dbo)
+
+When making Sqitch changes, the abbreviations for schemas are used to prefix the change. For more information, see [Contributing.md](./.github/CONTRIBUTING.md).
 
 For a list of planned additions, see the GitHub Issues for the repository.
 
@@ -143,10 +145,10 @@ To view the documentation, open the `index.html` file in the `schemaspy` directo
 
 The above will generate documentation for all schemas in the database (`-all`). To generate documentation for a specific list schema, replace `-all` with `-schemas <schema1>,<schema2>,...`.
 
-For example, to generate documentation for the `tat` and `dl` schemas, you can use the following command:
+For example, to generate documentation for the `tech_audit` and `digital_landscape` schemas, you can use the following command:
 
 ```bash
-docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tat,dl
+docker run --rm -it -v "$(pwd)/schemaspy":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tech_audit,digital_landscape
 ```
 
 #### Deploy SchemaSpy Docuementation to GitHub Pages
@@ -179,11 +181,11 @@ Once the script pushes the branch to GitHub, GitHub Pages will automatically bui
 
 Currently, the script only creates documentation for the following database schemas:
 
-- .tat
-- .dl
-- .gh
-- .gcp
-- .gpd
+- .tech_audit
+- .digital_landscape
+- .gh_scraper
+- .gh_copilot
+- .gh_policy
 - .dbo
 
 If more schemas are added to the database, the script will need to be updated to include them.

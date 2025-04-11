@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('gcp', 'usage');
+SELECT pg_catalog.has_schema_privilege('github_copilot', 'usage');
 
 ROLLBACK;

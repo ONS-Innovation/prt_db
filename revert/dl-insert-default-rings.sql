@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM dl.radar_ring AS r
+DELETE FROM digital_landscape.radar_ring AS r
 WHERE r.name IN (
     'Adopt',
     'Trial',

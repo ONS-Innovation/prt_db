@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM dl.radar_quadrant
+FROM digital_landscape.radar_quadrant
 WHERE FALSE;
 
 ROLLBACK;

@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.role
+FROM tech_audit.role
 WHERE FALSE;
 
 ROLLBACK;

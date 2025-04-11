@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gpd.policy_check
+FROM github_policy.policy_check
 WHERE FALSE;
 
 ROLLBACK;

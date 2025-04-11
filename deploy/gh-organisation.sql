@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE gh.organisation (
+CREATE TABLE github_scraper.organisation (
     organisation_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(39) NOT NULL
 );

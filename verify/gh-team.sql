@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gh.github_team
+FROM github_scraper.github_team
 WHERE FALSE;
 
 ROLLBACK;

@@ -6,7 +6,7 @@ DO $$
 BEGIN
     ASSERT (
         SELECT COUNT(*) = 14
-        FROM gpd.policy_check AS p
+        FROM github_policy.policy_check AS p
         WHERE p.name IN (
             'inactive',
             'unprotected_branches',

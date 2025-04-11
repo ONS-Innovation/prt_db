@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE tat.documentation (
+CREATE TABLE tech_audit.documentation (
     documentation_id SERIAL PRIMARY KEY NOT NULL,
-    project_id INT REFERENCES tat.project (project_id) NOT NULL,
+    project_id INT REFERENCES tech_audit.project (project_id) NOT NULL,
     link VARCHAR(255)
 );
 

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA gpd;
+DROP SCHEMA github_policy;
 
 COMMIT;

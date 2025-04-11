@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM gpd.policy_check AS p
+DELETE FROM github_policy.policy_check AS p
 WHERE p.name IN (
     'inactive',
     'unprotected_branches',

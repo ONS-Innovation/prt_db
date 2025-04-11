@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.hosting;
+DROP TABLE IF EXISTS tech_audit.hosting;
 
 COMMIT;

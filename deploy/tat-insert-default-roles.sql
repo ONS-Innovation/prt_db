@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO tat.role (name)
+INSERT INTO tech_audit.role (name)
 VALUES
 ('Technical Contact'),
 ('Delivery Manager'),

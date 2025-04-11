@@ -6,11 +6,12 @@
 
 BEGIN;
 
-CREATE TABLE tat.source_link (
-    source_control_id INT REFERENCES tat.source_control (source_control_id) NOT NULL,
-    project_id INT REFERENCES tat.project (project_id) NOT NULL,
+CREATE TABLE tech_audit.source_link (
+    source_control_id INT REFERENCES tech_audit.source_control (source_control_id) NOT NULL,
+    project_id INT REFERENCES tech_audit.project (project_id) NOT NULL,
     url VARCHAR(255) NOT NULL,
-    organisation_id INT REFERENCES gh.organisation (organisation_id)
+    organisation_id INT REFERENCES github_scraper.organisation (organisation_id),
+    PRIMARY KEY (project_id, url)
 );
 
 COMMIT;

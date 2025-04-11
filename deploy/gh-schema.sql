@@ -2,6 +2,6 @@
 
 BEGIN;
 
-CREATE SCHEMA gh;
+CREATE SCHEMA github_scraper;
 
 COMMIT;

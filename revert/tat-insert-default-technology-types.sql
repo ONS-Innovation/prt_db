@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM tat.technology_type AS t
+DELETE FROM tech_audit.technology_type AS t
 WHERE t.name IN (
     'hosting',
     'database',

@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.contributor
+FROM tech_audit.contributor
 WHERE FALSE;
 
 ROLLBACK;

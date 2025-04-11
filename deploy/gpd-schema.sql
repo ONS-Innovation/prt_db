@@ -2,6 +2,6 @@
 
 BEGIN;
 
-CREATE SCHEMA gpd;
+CREATE SCHEMA github_policy;
 
 COMMIT;

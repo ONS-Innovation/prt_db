@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE dl.radar_ring (
+CREATE TABLE digital_landscape.radar_ring (
     ring_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(20) NOT NULL
 );

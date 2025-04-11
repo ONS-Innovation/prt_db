@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM tat.role AS r
+DELETE FROM tech_audit.role AS r
 WHERE r.name IN (
     'Technical Contact',
     'Delivery Manager',

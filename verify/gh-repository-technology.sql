@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gh.repository_technology
+FROM github_scraper.repository_technology
 WHERE FALSE;
 
 ROLLBACK;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.project;
+DROP TABLE IF EXISTS tech_audit.project;
 
 COMMIT;

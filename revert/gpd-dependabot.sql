@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS gpd.dependabot;
+DROP TABLE IF EXISTS github_policy.dependabot;
 
 COMMIT;

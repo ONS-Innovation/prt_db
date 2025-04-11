@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA dl;
+DROP SCHEMA digital_landscape;
 
 COMMIT;

@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO dl.radar_quadrant (name)
+INSERT INTO digital_landscape.radar_quadrant (name)
 VALUES
 ('Infrastructure'),
 ('Languages'),

@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM dl.radar_timeline
+FROM digital_landscape.radar_timeline
 WHERE FALSE;
 
 ROLLBACK;
