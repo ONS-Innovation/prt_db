@@ -10,7 +10,7 @@ git pull origin gh-pages
 rm -rf *
 
 # Build the SchemaSpy documentation
-docker run --rm -it -v "$(pwd)/":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tat,dl,gh,gcp,gpd,dbo
+docker run --rm -it -v "$(pwd)/":/output  --network host schemaspy/schemaspy:latest -t pgsql -db prt_db -host localhost -u postgres -p postgres -schemas tech_audit,digital_landscape,github_scraper,github_copilot,github_policy,dbo
 
 # Stage the changes, commit, and push to the gh-pages branch
 git add .
