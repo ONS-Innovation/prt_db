@@ -17,7 +17,8 @@ WHERE t.name IN (
     'documentation',
     'communication',
     'collaboration',
-    'incident_management'
+    'incident_management',
+    'other'
 );
 
 COMMIT;
