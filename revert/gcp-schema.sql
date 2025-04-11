@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA gcp;
+DROP SCHEMA github_copilot;
 
 COMMIT;

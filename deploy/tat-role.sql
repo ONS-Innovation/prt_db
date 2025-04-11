@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE tat.role (
+CREATE TABLE tech_audit.role (
     role_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(30) NOT NULL
 );

@@ -6,7 +6,7 @@ DO $$
 BEGIN
     ASSERT (
         SELECT COUNT(*) = 2
-        FROM gh.organisation AS o
+        FROM github_scraper.organisation AS o
         WHERE o.name IN (
             'ONSdigital',
             'ONS-Innovation'

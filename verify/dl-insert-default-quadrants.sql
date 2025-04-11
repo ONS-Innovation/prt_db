@@ -6,7 +6,7 @@ DO $$
 BEGIN
     ASSERT (
         SELECT COUNT(*) = 6
-        FROM dl.radar_quadrant AS q 
+        FROM digital_landscape.radar_quadrant AS q 
         WHERE q.name IN (
             'Infrastructure', 
             'Languages', 

@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gh.organisation
+FROM github_scraper.organisation
 WHERE FALSE;
 
 ROLLBACK;

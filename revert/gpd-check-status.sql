@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS gpd.check_status;
+DROP TABLE IF EXISTS github_policy.check_status;
 
 COMMIT;

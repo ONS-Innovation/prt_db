@@ -6,7 +6,7 @@ DO $$
 BEGIN
     ASSERT (
         SELECT COUNT(*) = 4
-        FROM dl.radar_ring AS r
+        FROM digital_landscape.radar_ring AS r
         WHERE r.name IN (
             'Adopt',
             'Trial',

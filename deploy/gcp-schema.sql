@@ -2,6 +2,6 @@
 
 BEGIN;
 
-CREATE SCHEMA gcp;
+CREATE SCHEMA github_copilot;
 
 COMMIT;

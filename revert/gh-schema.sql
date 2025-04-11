@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA gh;
+DROP SCHEMA github_scraper;
 
 COMMIT;

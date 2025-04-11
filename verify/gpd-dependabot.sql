@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gpd.dependabot
+FROM github_policy.dependabot
 WHERE FALSE;
 
 ROLLBACK;

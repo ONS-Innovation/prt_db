@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.contributor;
+DROP TABLE IF EXISTS tech_audit.contributor;
 
 COMMIT;

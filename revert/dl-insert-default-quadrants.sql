@@ -2,7 +2,7 @@
 
 BEGIN;
 
-DELETE FROM dl.radar_quadrant AS q
+DELETE FROM digital_landscape.radar_quadrant AS q
 WHERE q.name IN (
     'Infrastructure',
     'Languages',

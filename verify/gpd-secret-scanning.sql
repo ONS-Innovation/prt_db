@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM gpd.secret_scanning
+FROM github_policy.secret_scanning
 WHERE FALSE;
 
 ROLLBACK;

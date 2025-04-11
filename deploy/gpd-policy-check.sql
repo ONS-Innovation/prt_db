@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE gpd.policy_check (
+CREATE TABLE github_policy.policy_check (
     check_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(30) NOT NULL,
     description VARCHAR(255) NOT NULL,

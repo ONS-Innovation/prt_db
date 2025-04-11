@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM dl.ring_movement
+FROM digital_landscape.ring_movement
 WHERE FALSE;
 
 ROLLBACK;

@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO tat.technology_type (name)
+INSERT INTO tech_audit.technology_type (name)
 VALUES
 ('hosting'),
 ('database'),
@@ -19,6 +19,7 @@ VALUES
 ('documentation'),
 ('communication'),
 ('collaboration'),
-('incident_management');
+('incident_management'),
+('other');
 
 COMMIT;

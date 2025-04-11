@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.role;
+DROP TABLE IF EXISTS tech_audit.role;
 
 COMMIT;

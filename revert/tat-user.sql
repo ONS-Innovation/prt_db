@@ -5,6 +5,6 @@ BEGIN;
 -- SQLFluff doesn't like the table being called user.
 -- This can be ignored.
 
-DROP TABLE IF EXISTS tat.user; -- noqa: PRS
+DROP TABLE IF EXISTS tech_audit.user; -- noqa: PRS
 
 COMMIT;

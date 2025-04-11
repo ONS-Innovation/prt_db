@@ -2,6 +2,6 @@
 
 BEGIN;
 
-CREATE SCHEMA dl;
+CREATE SCHEMA digital_landscape;
 
 COMMIT;

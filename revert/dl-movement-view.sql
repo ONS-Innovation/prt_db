@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP VIEW IF EXISTS dl.ring_movement;
+DROP VIEW IF EXISTS digital_landscape.ring_movement;
 
 COMMIT;

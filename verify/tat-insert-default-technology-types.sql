@@ -5,8 +5,8 @@ BEGIN;
 DO $$
 BEGIN
     ASSERT(
-        SELECT COUNT(*) = 14
-        FROM tat.technology_type AS t
+        SELECT COUNT(*) = 15
+        FROM tech_audit.technology_type AS t
         WHERE t.name IN (
             'hosting',
             'database',
@@ -21,7 +21,8 @@ BEGIN
             'documentation',
             'communication',
             'collaboration',
-            'incident_management'
+            'incident_management',
+            'other'
         )
     );
 END $$;

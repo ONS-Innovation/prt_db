@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.project_hosting
+FROM tech_audit.project_hosting
 WHERE FALSE;
 
 ROLLBACK;

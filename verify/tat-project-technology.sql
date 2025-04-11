@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.project_technology
+FROM tech_audit.project_technology
 WHERE FALSE;
 
 ROLLBACK;

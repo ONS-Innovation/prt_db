@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.programme
+FROM tech_audit.programme
 WHERE FALSE;
 
 ROLLBACK;

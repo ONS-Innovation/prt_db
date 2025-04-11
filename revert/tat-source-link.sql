@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.source_link;
+DROP TABLE IF EXISTS tech_audit.source_link;
 
 COMMIT;

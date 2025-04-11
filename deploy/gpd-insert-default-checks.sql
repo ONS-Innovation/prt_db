@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO gpd.policy_check (name, description, is_security_rule, is_policy_rule)
+INSERT INTO github_policy.policy_check (name, description, is_security_rule, is_policy_rule)
 VALUES
 ('inactive', 'The repository has not been updated in the last year.', TRUE, TRUE),
 ('unprotected_branches', 'The repository has unprotected branches.', TRUE, TRUE),

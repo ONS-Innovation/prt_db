@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS dl.radar_quadrant;
+DROP TABLE IF EXISTS digital_landscape.radar_quadrant;
 
 COMMIT;

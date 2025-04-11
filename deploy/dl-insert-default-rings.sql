@@ -4,7 +4,7 @@
 
 BEGIN;
 
-INSERT INTO dl.radar_ring (name)
+INSERT INTO digital_landscape.radar_ring (name)
 VALUES
 ('Adopt'),
 ('Trial'),

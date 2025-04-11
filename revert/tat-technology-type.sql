@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tat.technology_type;
+DROP TABLE IF EXISTS tech_audit.technology_type;
 
 COMMIT;

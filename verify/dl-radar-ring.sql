@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM dl.radar_ring
+FROM digital_landscape.radar_ring
 WHERE FALSE;
 
 ROLLBACK;

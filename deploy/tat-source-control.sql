@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE TABLE tat.source_control (
+CREATE TABLE tech_audit.source_control (
     source_control_id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(30) NOT NULL
 );

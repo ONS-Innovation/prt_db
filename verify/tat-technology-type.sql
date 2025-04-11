@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.technology_type
+FROM tech_audit.technology_type
 WHERE FALSE;
 
 ROLLBACK;

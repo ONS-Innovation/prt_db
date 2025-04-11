@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('dl', 'usage');
+SELECT pg_catalog.has_schema_privilege('digital_landscape', 'usage');
 
 ROLLBACK;

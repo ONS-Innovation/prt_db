@@ -2,6 +2,6 @@
 
 BEGIN;
 
-CREATE SCHEMA tat;
+CREATE SCHEMA tech_audit;
 
 COMMIT;

@@ -3,7 +3,7 @@
 BEGIN;
 
 SELECT *
-FROM tat.source_link
+FROM tech_audit.source_link
 WHERE FALSE;
 
 ROLLBACK;

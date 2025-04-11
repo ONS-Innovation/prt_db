@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('gpd', 'usage');
+SELECT pg_catalog.has_schema_privilege('github_policy', 'usage');
 
 ROLLBACK;

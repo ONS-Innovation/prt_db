@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE tat.project (
+CREATE TABLE tech_audit.project (
     project_id SERIAL PRIMARY KEY NOT NULL,
-    programme_id INT REFERENCES tat.programme (programme_id),
+    programme_id INT REFERENCES tech_audit.programme (programme_id),
     name VARCHAR(50) NOT NULL,
     short_name VARCHAR(10),
     description VARCHAR(1000),
