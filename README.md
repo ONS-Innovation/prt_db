@@ -50,7 +50,16 @@ This project uses Sqitch for database version control. Sqitch organises database
 
 ## Database Structure
 
-Documentation about the database structure can be found in the [database_structure.md](./docs/database_structure.md) file.
+The database is structured into schemas. Each schema contains tables, views and other database objects relating to the different tools the database integrates with. The schemas are:
+
+- `tech_audit` - Tech Audit Tool
+- `digital_landscape` - Digital Landscape
+- `gh_scraper` - GitHub Scraper
+- `gh_copilot` - GitHub Copilot Dashboard
+- `gh_policy` - GitHub Policy Dashboard
+- `dbo` - General database objects that don't belong to specific tools.
+
+For a list of planned additions, see the GitHub Issues for the repository.
 
 ## Local Development
 
